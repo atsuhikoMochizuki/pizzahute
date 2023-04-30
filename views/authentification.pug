@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  header
+    div(class="mx-auto mb-5")
+      img(src="images/logo-no-background-small.png" class="img-fluid" alt="")
+      h1(class="h1 text-center text-secondary") PIZZAHUTTE
+  main 
+    div(class="container text-center")
+      form(class="m-auto")
+        // Email input
+        .form-outline.mb-4
+          input#form2Example1.form-control(type='email')
+          label.form-label(for='form2Example1') Email
+        // Password input
+        .form-outline.mb-4
+          input#form2Example2.form-control(type='password')
+          label.form-label(for='form2Example2') Mot de passe
+        // 2 column grid layout for inline styling
+        div.d-flex.flex-row
+        button.btn.btn-primary.btn-block.mp-10.text-center(type='button') Se connecter
+        .text-center.mt-3
+        a.text-center(href='#!') Mot de passe oublié ?
+    
