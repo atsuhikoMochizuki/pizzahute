@@ -1,10 +1,16 @@
 extends layout
+//- !!!A terminer:
+//- responsive du logo
+//- chemin de /bootstrap.min.css  en 404
 
 block content
   header
-    div(class="mx-auto mb-5")
-      img(src="images/logo-no-background-small.png" class="img-fluid" alt="")
-      h1(class="h1 text-center text-secondary") PIZZAHUTTE
+    div(class="container d-flex flex-column bg-dark  align-items-center ")
+      
+        //- img(src="images/logo-no-background-small.png" class="col d-flex fflex-shrink-5 img-fluid" alt="")
+        h1(class="h1text-secondaryf d-flex flex-grow-1 align-self-center") PIZZAHUTTE
+        h1(class="h1text-secondaryf d-flex flex-grow-1 ") PIZZAHUTTE
+        
   main 
     div(class="container text-center")
       form(class="m-auto")
