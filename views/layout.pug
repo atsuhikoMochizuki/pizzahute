@@ -10,4 +10,41 @@ html
     link(rel='javascripts',   href='/javascripts/bootstrap.min.js')
     link(rel="shortcut icon", href="/images/favicon.ico")
   body
-    block content
+  block admin-authentification
+    header
+      .container-fluid.border.border-success.text-center
+        .row.border.border-info
+          .col-3.border.border-warning
+            .row.border.border-success.d-flex.flex-column.align-items-center
+              .col.border
+                img(src="../images/logos/logo_white_no_lines.png" class="text-center mb-2")
+              .col.border 
+                h1 PIZZAHUTTE 
+          .col.border.border-warning.align-self-center
+            ul.nav.nav-underline
+              li.nav-item
+                a.nav-link.disabled Utilisateurs
+              li.nav-item
+                a.nav-link.disabled Pizzas
+              li.nav-item
+                a.nav-link.disabled Menus
+              li.nav-item
+                a.nav-link.disabled Desserts
+              li.nav-item
+                a.nav-link.disabled Boissons
+              li.nav-item
+                a.nav-link.disabled Clients
+              li.nav-item
+                a.nav-link.disabled Commandes
+              li.nav-item
+                a.nav-link.disabled Livreurs
+              li.nav-item
+                a.nav-link.disabled Ingrédients
+              li.nav-item
+                a.nav-link.disabled Statistiques
+              li.nav-item
+                a.nav-link.disabled Promotions
+    block mainContent
+  
+      
+

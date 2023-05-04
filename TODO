@@ -3,4 +3,5 @@ scripts BASH:
 -Hyperlien ds le script bash pour ouvrir le navigateur
 
 Page authentification:
+-Corriger la disposition du front, elle ne correspond pas à ce qui est demandé.
 -La taille de la google font du H1 ne change pas - à voir
