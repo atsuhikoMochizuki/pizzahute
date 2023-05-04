@@ -1,12 +1,9 @@
 h1 {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: xx-large;
-  color: white;
+  color: blue;
 }
 
-* {
-  background-color: black;
-}
 
 body {
   padding: 50px;
