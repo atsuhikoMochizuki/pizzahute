@@ -1,0 +1,30 @@
+extends layout
+block content
+  .container.text-center
+    img(src="./images/logos/mochizuki_logo.png" class="text-center")
+    .row.align-items-center
+      h1.col PIZZAHUTTE
+    .row.mt-3
+    form
+      .mb-3
+        .row
+          .col-3.bg-white
+          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp' class="col")
+          .col-3.bg-white
+        label.form-label(for='exampleInputEmail1' class="col") Email
+      .mb-3
+        .row
+          .col-3.bg-white
+          input#exampleInputPassword1.form-control(type='password' class='col')
+          .col-3.bg-white
+        label.form-label(for='exampleInputPassword1') Mot de passe
+      .mb-3
+        a(href='#')
+          button.btn.btn-primary.mb-2(type='submit') Se connecter
+        a.text-decoration-none(href='#')
+          p mot de passe oublié ?
+      .mt-5
+        a.text-decoration-none.mt-2(href='https://github.com/atsuhikoMochizuki')
+          img(src="./images/logos/github_logo_xsmall.png" alt="")
+          p https://github.com/atsuhikoMochizuki
+        p @Atsuhiko_Mochizuki - 2023 - Tous droits réservés
