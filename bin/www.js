@@ -13,17 +13,24 @@ const SUCCESS = "\033[0;32m";
 const INFO = "\033[0;34m";
 const ENTITY = "\033[0;35m";
 const NO_COLOR = "\033[0m";
+
 const P = NO_COLOR + "[" + ENTITY + PROJECT_NAME + "-server" + NO_COLOR + "]";
 /*Dépendencies*/
-var app = require("../app");
+
+var app = require("../app.js");
 var debug = require("debug")("pizzahutte:server");
 var http = require("http");
 const { exec } = require("node:child_process");
+
 // ======================================================================
 
 // Main application
 // ======================================================================
-console.clear();
+// console.clear();
+// console.log(`${P}Connexion à la base de données SQL pizzahutte_admin_db...`);
+var SQL_connexion = require("../db_management_admin.js");
+//console.log(`${P}${SUCCESS}...Connexion OK`);
+
 console.log(`${P}Démarrage du serveur PizzaHutte...`);
 
 /*Setting port Number in Express App*/
@@ -47,7 +54,7 @@ console.log(`
 | |__) || |    / /   / /   /  \\  | |__| | |  | |  | |     | |  | |__
 |  ___/ | |   / /   / /   / /\\ \\ |  __  | |  | |  | |     | |  |  __|
 | |    _| |_ / /__ / /__ / ____ \\| |  | | |__| |  | |     | |  | |___
-|_|   |_____/_____/_____/_/    \\_\\_|  |_|\\____/   |_|     |_|  |______|
+|_|   |_____/_____/_____/_/    \\_\\_|  |_|\\____/   |_|     |_|  |______|---Admin
 version 1.0
 by Atsuhiko Mochizuki
 https://github.com/atsuhikoMochizuki
