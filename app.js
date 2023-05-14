@@ -7,6 +7,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var forgotPwdRouter = require("./routes/forgot");
+var SendNewPwdRouter = require("./routes/newPwd_query");
+
 //const db = require("./config/config.js");
 // // Connexion à la base de données
 // db.connect((err) => {
@@ -38,6 +41,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/forgot", forgotPwdRouter);
+app.use("/newPwd_query", SendNewPwdRouter);
 
 //pour maintenir la connexion en vie, faire des requêtes fréquentes à la base de données SQL
 

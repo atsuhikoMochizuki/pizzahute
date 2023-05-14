@@ -28,6 +28,7 @@ con.connect((err) => {
   }
   console.log("Connection established");
 });
+
 const query0 = `DROP TABLE users ;`;
 con.query(query0, (err, res) => {
   if (err) throw err;
@@ -54,7 +55,6 @@ VALUES
 ("alba@pizzahutte.com","alba1984","Dello-Iavoco","Alba");`;
 con.query(query2, (err, res) => {
   if (err) throw err;
-
   console.log("insert OK");
 });
 

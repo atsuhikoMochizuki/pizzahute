@@ -9,19 +9,19 @@ block admin-authentification
       .mb-3
         .row
           .col-4.bg-white
-          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp' class="col")
+          input#exampleInputEmail1.form-control(type='email' name="user_email" aria-describedby='emailHelp' class="col")
           .col-4.bg-white
         label.form-label(for='exampleInputEmail1' class="col") Email
       .mb-3
         .row
           .col-4.bg-white
-          input#exampleInputPassword1.form-control(type='password' class='col')
+          input#exampleInputPassword1.form-control(type='password' name="user_pwd" class='col')
           .col-4.bg-white
         label.form-label(for='exampleInputPassword1') Mot de passe
       .mb-3
         a(href='#')
           button.btn.btn-primary.mb-2(type='submit') Se connecter
-        a.text-decoration-none(href='#')
+        a.text-decoration-none(href='/forgot')
           p mot de passe oublié ?
       .mt-5
         a.text-decoration-none.mt-2(href='https://github.com/atsuhikoMochizuki')

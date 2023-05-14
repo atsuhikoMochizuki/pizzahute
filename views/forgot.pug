@@ -1,0 +1,22 @@
+extends layout
+block admin-authentification
+  .container.text-center
+    img(src="./images/logos/logo_white_no_lines.png" class="text-center mb-5")
+    h1 MOT DE PASSE OUBLIE
+    .row.align-items-center
+    .row.mt-3
+    form(action="/newPwd_query" method="post")
+      .mb-3
+        .row
+          .col-4.bg-white
+          input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp' class="col mt-5")
+          .col-4.bg-white
+        label.form-label(for='exampleInputEmail1' class="col") Veuillez saisir votre email. Un nouveau mot de passe vous y sera envoyé
+      .mb-3
+        //- a(href='#')
+        button.btn.btn-primary.mb-2(type='submit') ENVOYER
+      .mt-5
+        a.text-decoration-none.mt-2(href='https://github.com/atsuhikoMochizuki')
+          img(src="./images/logos/github_logo_xsmall.png" alt="")
+          p https://github.com/atsuhikoMochizuki
+        p @Atsuhiko_Mochizuki - 2023 - Tous droits réservés
