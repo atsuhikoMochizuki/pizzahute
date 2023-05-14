@@ -1,8 +1,15 @@
 var express = require("express");
 var router = express.Router();
+let bodyParser = require("body-parser");
 
+router.use(express.json()); // for parsing application/json
+router.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+router.use(bodyParser.urlencoded({ extended: true }));
 /* GET users listing. */
 router.post("/", function (req, res, next) {
+  console.log(req.body.p1);
+  res.json(req.body);
+
   console.log("Génération d'un nouveau mot de passe");
   let newPwd = generatePwd();
 });
