@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-const db = require("./config/config.js");
+//const db = require("./config/config.js");
 // // Connexion à la base de données
 // db.connect((err) => {
 //   if (err) {
@@ -18,8 +18,8 @@ const db = require("./config/config.js");
 // setInterval(function () {
 //   db.query("SELECT 1");
 // }, 5000);
-global.db = db;
-const first = require("./routes/first");
+//global.db = db;
+//const first = require("./routes/first");
 
 // ======================================================================
 
@@ -38,7 +38,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/first", first);
 
 //pour maintenir la connexion en vie, faire des requêtes fréquentes à la base de données SQL
 

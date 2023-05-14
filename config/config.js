@@ -1,4 +1,6 @@
 const mysql = require("mysql");
+const path = require("path");
+const fs = require("fs");
 
 // Constants
 const MODULE_NAME = "Db-admin";
@@ -22,26 +24,12 @@ function sqlConnect() {
       password: "pizzahutte",
     });
     conn.connect();
-    var sql1 = "DROP TABLE IF EXISTS Employees ";
-    conn.query(sql1, function (err, results) {
+    const users = fs
+      .readFileSync(path.join(__dirname, "../sql/db.sql"))
+      .toString();
+    conn.query(users, function (err, result) {
       if (err) throw err;
-      console.log("Table EMPLOYEES dropped");
-    });
-    var sql2 =
-      "CREATE TABLE Employees " +
-      " (Id INT not null AUTO_INCREMENT, " +
-      " Emp_No VARCHAR(20), " +
-      " Full_Name VARCHAR(255), " +
-      " Hire_Date DATE, " +
-      " PRIMARY KEY (Id) )";
-
-    conn.query(sql2, function (err, results) {
-      if (err) throw err;
-      console.log("Table Employees created");
-    });
-
-    conn.query("SHOW TABLES;", function (err, results) {
-      if (err) throw err;
+      console.log(result);
     });
   } catch {
     conn.connect(function (err) {
