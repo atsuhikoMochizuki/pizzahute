@@ -1,37 +1,74 @@
-//import dependencies
-const express = require("express");
+// Dependencies
+var express = require("express");
+var router = express.Router();
 const path = require("path");
-const db = require("./config/config");
-const PORT = process.env.PORT || 3000;
+const fs = require("fs");
 
-//Import Routes
-const first = require("./router/first");
-const second = require("./router/second");
+// db.query = loadSQLScript(db);
 
-//start the express app
-const app = express();
-
-//IMPORT MIDDLEWARES
-app.get("/", (req, res) => res.send("Node App is running"));
-app.use("/", first);
-app.use("/", second);
-
-//connect to database once app is started
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log("connected");
+//GET request
+router.get("/", function (req, res, next) {
+  const db = require("../config/config");
+  // const query = db.query(users, (err, result) => {
+  //   if (err) {
+  //     throw err;
+  //   } else {
+  //     res.send("Query run successfully");
+  //   }
+  // });
+  //const query = loadSQLScript(db);
 });
 
-//make the connection global
-global.db = db;
+async function loadSQLScript(db) {
+  console.log("COUCOU");
+  const users = fs
+    .readFileSync(path.join(__dirname, "../sql/db.sql"))
+    .toString();
+  console.log(users);
+  // const query = await db.query(users, (err, result) => {
+  //   if (err) {
+  //     throw err;
+  //   } else {
+  //     res.send("Query run successfully");
+  //   }
+  // });
+  // return query;
+}
 
-//to keep the connection alive, make frequent quries to SQL database
-setInterval(function () {
-  db.query("SELECT 1");
-}, 5000);
+//GET request
+// router.get("/first", function (req, res, next) {
+//   // res.render("index", {
+//   //   title:
+//   //     "PIZZAHUTTE - Pizzéria collaborative située à Perpet-les-Pranades dans le Doubs",
+//   // });
+//   console.log("COUCOU");
+// });
 
-app.listen(PORT, () => console.log(`WebApp running on port  ${PORT}`));
+module.exports = router;
 
-module.exports = app;
+// const express = require("express");
+// const path = require("path");
+// const fs = require("fs");
+// const db = require("../config/config.js");
+
+// const router = express.Router();
+
+// router.get("/first", async (req, res) => {
+//   res.render("index", {
+//     title:
+//       "PIZZAHUTTE - Pizzéria collaborative située à Perpet-les-Pranades dans le Doubs",
+//   });
+//   // const users = fs
+//   //   .readFileSync(path.join(__dirname, "../sql/db.sql"))
+//   //   .toString();
+//   // const query = await db.query(users, (err, result) => {
+//   //   if (err) {
+//   //     throw err;
+//   //   } else {
+//   //     res.send("Query run successfully");
+//   //   }
+//   // });
+//   console.log("ON EST RENTRES");
+// });
+
+// module.exports = router;
