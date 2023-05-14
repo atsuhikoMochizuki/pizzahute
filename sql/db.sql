@@ -1,4 +1,4 @@
-CREATE TABLE if not exists utilisateurs (
+CREATE TABLE if not exists lions (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(70) NULL,
     pass VARCHAR(70) NULL,
