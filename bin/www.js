@@ -30,7 +30,7 @@ const { exec } = require("node:child_process");
 // console.log(`${P}Connexion à la base de données SQL pizzahutte_admin_db...`);
 // var SQL_connexion = require("../db_management_admin.js");
 //console.log(`${P}${SUCCESS}...Connexion OK`);
-const db = require("../config/config.js");
+const conn = require("../config/config.js");
 console.log(`${P}Démarrage du serveur PizzaHutte...`);
 
 /*Setting port Number in Express App*/
