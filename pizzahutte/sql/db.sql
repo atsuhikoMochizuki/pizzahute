@@ -1,4 +1,4 @@
-CREATE TABLE if not exists JAMBON (
+CREATE TABLE if not exists users (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(70) NULL,
     pass VARCHAR(70) NULL,
