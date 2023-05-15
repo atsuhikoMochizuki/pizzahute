@@ -5,9 +5,9 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var forgotPwdRouter = require("./routes/forgot");
+var indexRouter = require("./routes/route_adminLogin");
+var usersRouter = require("./routes/routes_users");
+var forgotPwdRouter = require("./routes/route_forgottenPwd");
 var SendNewPwdRouter = require("./routes/newPwd_query");
 
 //const db = require("./config/config.js");

@@ -9,7 +9,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post("/", function (req, res, next) {
   console.log(req.body.p1);
   res.json(req.body);
-
+  console.log(res);
   console.log("Génération d'un nouveau mot de passe");
   let newPwd = generatePwd();
 });

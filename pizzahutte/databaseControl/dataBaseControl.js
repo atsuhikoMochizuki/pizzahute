@@ -20,6 +20,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "pizzahutte-admin",
   password: "pizzahutte",
+  multipleStatements: true,
 });
 con.connect((err) => {
   if (err) {
@@ -47,7 +48,7 @@ con.query(query1, (err, res) => {
   console.log("insert OK");
 });
 
-const query2 = `INSERT INTO users(email,pass,nom,prenom) 
+const query2 = `INSERT INTO users(email,pass,nom,prenom)
 VALUES
 ("gino@pizzahutte.com","gino1972","Giacomucci","Gino"),
 ("alberto@pizzahutte.com","alberto1994","Zacchi","Alberto"),
@@ -57,6 +58,20 @@ con.query(query2, (err, res) => {
   if (err) throw err;
   console.log("insert OK");
 });
+
+// (async (req, res) => {
+//   console.log(__dirname);
+//   const users = fs
+//     .readFileSync(path.join(__dirname, "../sql/db.sql"))
+//     .toString();
+//   const query = con.query(users, (err, result) => {
+//     if (err) {
+//       throw err;
+//     } else {
+//       res.send("Query run successfully");
+//     }
+//   });
+// })();
 
 con.end((err) => {
   // The connection is terminated gracefully

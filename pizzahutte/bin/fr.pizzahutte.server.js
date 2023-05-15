@@ -15,37 +15,28 @@ const ENTITY = "\033[0;35m";
 const NO_COLOR = "\033[0m";
 
 const P = NO_COLOR + "[" + ENTITY + PROJECT_NAME + "-server" + NO_COLOR + "]";
-/*Dépendencies*/
-
-var app = require("../app.js");
-var debug = require("debug")("pizzahutte:server");
-var http = require("http");
-const { exec } = require("node:child_process");
-
 // ======================================================================
 
 // Main application
 // ======================================================================
-// console.clear();
-// console.log(`${P}Connexion à la base de données SQL pizzahutte_admin_db...`);
-// var SQL_connexion = require("../db_management_admin.js");
-//console.log(`${P}${SUCCESS}...Connexion OK`);
-const conn = require("../config/config.js");
-console.log(`${P}Démarrage du serveur PizzaHutte...`);
 
-/*Setting port Number in Express App*/
+var debug = require("debug")("pizzahutte:server");
+const { exec } = require("node:child_process");
+
+/*Création de l'application express, surcouche au serveur HTTP*/
+var expressApp = require("../ExpressApp.js");
 var port = normalizePort(process.env.PORT || SERVER_PORT_NUMBER);
-app.set("port", port);
+expressApp.set("port", port);
 
-/*Creation of Http server*/
-var server = http.createServer(app);
+// création de la connexion à la db
+const conn = require("../databaseControl/dataBaseControl.js");
 
-// Start listening on port
-server.listen(port);
-
-// Callbacks assignment to events
-server.on("error", onError);
-server.on("listening", onListening);
+// création et démarrage du serveur http avec surcouche express
+var http = require("http");
+var httpServer = http.createServer(expressApp);
+httpServer.listen(port);
+httpServer.on("error", onError);
+httpServer.on("listening", onListening);
 
 /*Welcome Prompt for user*/
 console.log(`
@@ -59,6 +50,7 @@ version 1.0
 by Atsuhiko Mochizuki
 https://github.com/atsuhikoMochizuki
 ${P}${SUCCESS}...Démarrage OK. Serveur en écoute sur le port ${port}.`);
+
 console.log(`${P}${INFO}En attente de requêtes...${NO_COLOR}`);
 
 const localHostClient = "http://localhost:" + port;
@@ -69,7 +61,7 @@ launchClientBrowser(localHostClient);
 //=================================================================
 //  !** => "listening"
 function onListening() {
-  var addr = server.address();
+  var addr = httpServer.address();
   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
   debug("Listening on " + bind);
 }
